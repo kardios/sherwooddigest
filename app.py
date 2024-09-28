@@ -54,5 +54,5 @@ if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
     
     st.snow()
 
-  st.write("Combined Output"")
+  st.write("Combined Output:")
   st_copy_to_clipboard(combined_output)
