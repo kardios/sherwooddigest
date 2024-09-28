@@ -28,7 +28,7 @@ if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
                                        {"role": "user", "content": url, "temperature": 0}],
                                        headers_perplexity = {"accept": "application/json",
                                        "content-type": "application/json",
-                                       "Authorization": f'Bearer {llama3_api_key}'}
+                                       "Authorization": f'Bearer {llama3_api_key}'}}
     
     response_llama = requests.post(get_url_perplexity, json=payload_perplexity, headers=headers_perplexity)
     data_llama = json.loads(response_llama.text)
