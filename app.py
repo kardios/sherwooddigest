@@ -53,5 +53,6 @@ if st.button(":rocket:") and input_text.strip != "":
     
     st.snow()
 
-  st.write("Combined Output:")
-  st_copy_to_clipboard(combined_output)
+  with st.expander("Combined Output", expanded = True):
+    st.write("Click to copy to clipboard:")
+    st_copy_to_clipboard(combined_output)
