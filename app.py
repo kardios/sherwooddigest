@@ -20,10 +20,17 @@ instruction = st.selectbox("Choose your preferred output format, if necessary:",
 input_text = st.text_area("Enter your list of URLs:")
 
 if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
+  
   urls = extractor.find_urls(input_text)
-  st.write(urls)
+  
+  with st.expander("Number of URLs " + str(len(urls)), expanded = TRUE):
+    for url in urls:
+      st.write(url)
+  
   for url in urls:
+  
     start = time.time()
+    
     get_url_perplexity = "https://api.perplexity.ai/chat/completions"
     payload_perplexity = {"model": "llama-3.1-sonar-huge-128k-online",
                           "messages": [{"role": "system", "content": ""},
@@ -34,6 +41,7 @@ if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
     response_llama = requests.post(get_url_perplexity, json=payload_perplexity, headers=headers_perplexity)
     data_llama = json.loads(response_llama.text)
     output_text = data_llama['choices'][0]['message']['content'] 
+    
     end = time.time()
     
     with st.expander(url):
