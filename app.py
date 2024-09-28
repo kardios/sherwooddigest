@@ -16,7 +16,7 @@ st.write("*Summaries at your fingertips*")
 #instruction = st.selectbox("Choose your preferred output format, if necessary:", ("", "Generate a single, concise paragraph on: ", "Generate concise bullet points on: ", "Generate a full report on: "))
 instruction = "Generate a single, concise paragraph summary of the weblink: "
 
-input_text = st.text_area("Enter your list of URLs:")
+input_text = st.text_area("Input your list of URLs:")
 
 if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
   
