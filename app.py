@@ -20,6 +20,7 @@ input_text = st.text_area("Enter your list of URLs:")
 
 if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
   urls = extractor.find_urls(input_text)
+  st.write(urls)
   for url in urls:
     start = time.time()
     get_url_perplexity = "https://api.perplexity.ai/chat/completions"
