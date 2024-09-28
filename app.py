@@ -14,7 +14,7 @@ extractor = URLExtract()
 st.set_page_config(page_title="Sherwood Digest", page_icon=":robot_face:",)
 st.write("**Sherwood Digest: Summaries at your fingertips**")
 
-instruction = st.selectbox("Choose your preferred output format, if necessary:", ("", "Generate a single, concise paragraph on:", "Generate concise bullet points on:", "Generate a full report on:"))
+instruction = st.selectbox("Choose your preferred output format, if necessary:", ("", "Generate a single, concise paragraph on: ", "Generate concise bullet points on: ", "Generate a full report on: "))
 
 input_text = st.text_area("Enter your list of URLs:")
 
@@ -26,7 +26,7 @@ if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
     get_url_perplexity = "https://api.perplexity.ai/chat/completions"
     payload_perplexity = {"model": "llama-3.1-sonar-huge-128k-online",
                           "messages": [{"role": "system", "content": ""},
-                                       {"role": "user", "content": url, "temperature": 0}]}
+                                       {"role": "user", "content": instruction + url, "temperature": 0}]}
     headers_perplexity = {"accept": "application/json",
                           "content-type": "application/json",
                           "Authorization": f'Bearer {llama3_api_key}'}    
