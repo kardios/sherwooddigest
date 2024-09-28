@@ -18,7 +18,7 @@ instruction = "Generate a single, concise paragraph summary of the weblink: "
 
 input_text = st.text_area("Input your list of URLs:")
 
-if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
+if st.button(":rocket:") and input_text.strip != "":
   
   urls = extractor.find_urls(input_text)
 
