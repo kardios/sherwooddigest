@@ -22,10 +22,11 @@ input_text = st.text_area("Enter your list of URLs:")
 if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
   
   urls = extractor.find_urls(input_text)
-  
-  with st.expander("Number of URLs " + str(len(urls)), expanded = True):
-    for url in urls:
-      st.write(url)
+
+  if len(urls) > 0:
+    with st.expander("Number of URLs: " + str(len(urls)), expanded = True):
+      for url in urls:
+        st.write(url)
   
   for url in urls:
   
@@ -44,7 +45,7 @@ if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
     
     end = time.time()
     
-    with st.expander(url):
+    with st.expander(url, expanded=True):
       st.write(output_text)
       st.write("Time to generate: " + str(round(end-start,2)) + " seconds")
       st_copy_to_clipboard(output_text)
