@@ -9,7 +9,7 @@ from st_copy_to_clipboard import st_copy_to_clipboard
 llama3_api_key = os.environ["PERPLEXITY_API_KEY"]
 extractor = URLExtract()
 
-st.set_page_config(page_title="Sherwood Digest", page_icon=":robot_face:",)
+st.set_page_config(page_title="Sherwood Digest", page_icon=":memo:",)
 st.write("**Sherwood Digest**")
 
 #instruction = st.selectbox("Choose your preferred output format, if necessary:", ("", "Generate a single, concise paragraph on: ", "Generate concise bullet points on: ", "Generate a full report on: "))
