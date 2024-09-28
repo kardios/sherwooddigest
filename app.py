@@ -23,7 +23,7 @@ if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
   
   urls = extractor.find_urls(input_text)
   
-  with st.expander("Number of URLs " + str(len(urls)), expanded = TRUE):
+  with st.expander("Number of URLs " + str(len(urls)), expanded = True):
     for url in urls:
       st.write(url)
   
