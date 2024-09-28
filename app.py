@@ -25,11 +25,10 @@ if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
     get_url_perplexity = "https://api.perplexity.ai/chat/completions"
     payload_perplexity = {"model": "llama-3.1-sonar-huge-128k-online",
                           "messages": [{"role": "system", "content": ""},
-                                       {"role": "user", "content": url, "temperature": 0}],
-                                       headers_perplexity = {"accept": "application/json",
-                                       "content-type": "application/json",
-                                       "Authorization": f'Bearer {llama3_api_key}'}}
-    
+                                       {"role": "user", "content": url, "temperature": 0}]}
+    headers_perplexity = {"accept": "application/json",
+                          "content-type": "application/json",
+                          "Authorization": f'Bearer {llama3_api_key}'}    
     response_llama = requests.post(get_url_perplexity, json=payload_perplexity, headers=headers_perplexity)
     data_llama = json.loads(response_llama.text)
     output_text = data_llama['choices'][0]['message']['content'] 
