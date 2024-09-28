@@ -4,8 +4,6 @@ import time
 import requests
 import json
 from urlextract import URLExtract
-from datetime import datetime
-from zoneinfo import ZoneInfo
 from st_copy_to_clipboard import st_copy_to_clipboard
 
 llama3_api_key = os.environ["PERPLEXITY_API_KEY"]
@@ -28,7 +26,8 @@ if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
     with st.expander("Number of URLs: " + str(len(urls)), expanded = True):
       for url in urls:
         st.write(url)
-  
+
+  combined_output = ""
   for url in urls:
   
     start = time.time()
@@ -50,5 +49,10 @@ if st.button("Let\'s F\'ing Go :rocket:") and input_text.strip != "":
       st.write(output_text)
       st.write("Time to generate: " + str(round(end-start,2)) + " seconds")
       st_copy_to_clipboard(output_text)
+
+    combined_output = combined_output + url + "\n\n" + output_text + "\n\n"
     
     st.snow()
+
+  st.write("Combined Output"")
+  st_copy_to_clipboard(combined_output)
